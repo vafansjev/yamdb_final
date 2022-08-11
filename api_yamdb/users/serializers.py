@@ -1,7 +1,7 @@
+from django.contrib.auth.tokens import default_token_generator
 from django.shortcuts import get_object_or_404
 from rest_framework import serializers
 from users.models import User
-from django.contrib.auth.tokens import default_token_generator
 
 
 class UserSerializer(serializers.ModelSerializer):

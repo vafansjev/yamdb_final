@@ -1,6 +1,7 @@
+import csv
+
 from django.apps import apps
 from django.core.management import BaseCommand
-import csv
 
 # Структура данных - приложение, модель, файл для импорта
 DATA = [

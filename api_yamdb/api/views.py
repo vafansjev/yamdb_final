@@ -1,26 +1,19 @@
 from django.shortcuts import get_object_or_404
-from rest_framework.response import Response
-from rest_framework import viewsets
-from rest_framework.decorators import permission_classes
-from rest_framework.permissions import IsAuthenticatedOrReadOnly
-from rest_framework.mixins import (CreateModelMixin,
-                                   DestroyModelMixin, ListModelMixin
-                                   )
 from django_filters.rest_framework import DjangoFilterBackend
-from rest_framework import filters, status
+from rest_framework import filters, status, viewsets
+from rest_framework.decorators import permission_classes
+from rest_framework.mixins import (CreateModelMixin, DestroyModelMixin,
+                                   ListModelMixin)
+from rest_framework.permissions import IsAuthenticatedOrReadOnly
+from rest_framework.response import Response
+from reviews.models import Category, Genre, Review, Title
+
 from .filters import TitleFilter
-from .permissions import (IsUserAdminModeratorOrReadOnly,
-                          IsAuthenticatedAdminOrReadOnly,
-                          )
-from reviews.models import Category, Genre, Title, Review
-from .serializers import (
-    CategorySerializer,
-    GenreSerializer,
-    TitleSerializer,
-    TitleCreateSerializer,
-    ReviewSerializer,
-    CommentSerializer,
-)
+from .permissions import (IsAuthenticatedAdminOrReadOnly,
+                          IsUserAdminModeratorOrReadOnly)
+from .serializers import (CategorySerializer, CommentSerializer,
+                          GenreSerializer, ReviewSerializer,
+                          TitleCreateSerializer, TitleSerializer)
 
 
 class CategoryViewSet(CreateModelMixin,

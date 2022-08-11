@@ -1,13 +1,8 @@
 import datetime
+
+from django.db.models import Avg, IntegerField
 from rest_framework import serializers
-from django.db.models import Avg
-from django.db.models import IntegerField
-from reviews.models import (
-    Category,
-    Genre,
-    Title,
-    Review,
-    Comment)
+from reviews.models import Category, Comment, Genre, Review, Title
 
 
 class CategorySerializer(serializers.ModelSerializer):
