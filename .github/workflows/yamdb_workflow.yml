@@ -56,7 +56,7 @@ jobs:
             passphrase: ${{ secrets.PASSPHRASE }}
             script: |
               sudo docker pull vafansjev/yamdb_final:latest
-              sudo docker-compose stop
+              sudo docker-compose pull
               sudo docker-compose rm web
               touch .env
               echo DB_ENGINE=${{ secrets.DB_ENGINE }} >> .env
